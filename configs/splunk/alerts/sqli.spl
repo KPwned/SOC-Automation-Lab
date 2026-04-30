@@ -1,0 +1,6 @@
+index=web "sqli"
+| rex field=_raw "^(?<src_ip>\d+\.\d+\.\d+\.\d+)"
+| eval Attack="SQL Injection"
+| eval Severity="HIGH"
+| eval Type="External Attack"
+| table Attack, src_ip, Severity, Type, _time

@@ -1,0 +1,8 @@
+{
+  "Attack":   "={{ $json.body.result.Attack || ($json.body.search_name === 'bruteforceattack' ? 'Brute Force' : 'SQL Injection') }}",
+  "Attacker": "={{ $json.body.result.src_ip }}",
+  "Attempts": "={{ $json.body.result.Attempts || '1' }}",
+  "Time":     "={{ new Date($json.body.result._time * 1000).toLocaleString() }}",
+  "Severity": "={{ $json.body.result.Severity || ($json.body.search_name === 'bruteforceattack' ? 'MEDIUM' : 'HIGH') }}",
+  "Type":     "={{ $json.body.result.Type || 'External Attack' }}"
+}
